@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from raymond_investment import *
 
-apikey = 'brhMaUKd4jayzZg'
+apikey = 'xxxxxxxxxxxxx'
 
 Main.Monitor(category, token)
 Main.GetData(ID, token)
