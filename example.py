@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 from raymond_investment import *
 
-apikey = 'xxxxxxxxxxxxx'
+apikey = 'XXXXXXXXXXXXX'
 
-Main.Monitor(category, token)
-Main.GetData(ID, token)
+Monitor = Main.Monitor(category = 'All', token = apikey)
+#Main.GetData(ID, token)
 
-CL_seasonality = Commodity.Get_Seasonality('CL', token = apikey)
-Strategies = Commodity.Get_SpreadTradingStrategy(token = apikey)
+#CL_seasonality = Commodity.Get_Seasonality('CL', token = apikey)
+#Strategies = Commodity.Get_SpreadTradingStrategy(token = apikey)
 

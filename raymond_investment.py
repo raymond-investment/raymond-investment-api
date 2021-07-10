@@ -7,19 +7,19 @@ class Main:
     @staticmethod
     def Monitor(category, token):
         if category == 'All':
-            df = pd.read_json(f"http://172.104.65.241/data/api/monitor?token={token}").transpose().sort_index()
+            df = pd.read_json(f"https://app.raymond-investment.com/data/api/monitor?token={token}").transpose().sort_index()
         
         elif category == 'Equity':
-            df = pd.read_json(f"http://172.104.65.241/data/api/monitor/Equity?token={token}").transpose().sort_index()
+            df = pd.read_json(f"https://app.raymond-investment.com/data/api/monitor/Equity?token={token}").transpose().sort_index()
             
         elif category == 'Forex':
-            df = pd.read_json(f"http://172.104.65.241/data/api/monitor/Forex?token={token}").transpose().sort_index()
+            df = pd.read_json(f"https://app.raymond-investment.com/data/api/monitor/Forex?token={token}").transpose().sort_index()
             
         elif category == 'FixedIncome':
-            df = pd.read_json(f"http://172.104.65.241/data/api/monitor/FixedIncome?token={token}").transpose().sort_index()
+            df = pd.read_json(f"https://app.raymond-investment.com/data/api/monitor/FixedIncome?token={token}").transpose().sort_index()
         
         elif category == 'Commodity':
-            df = pd.read_json(f"http://172.104.65.241/data/api/monitor/Commodity?token={token}").transpose().sort_index()
+            df = pd.read_json(f"https://app.raymond-investment.com/data/api/monitor/Commodity?token={token}").transpose().sort_index()
         
         else:
             print("Wrong input.")
@@ -32,13 +32,13 @@ class Main:
     @staticmethod
     def GetData(ID, token, Start=None, End=None):
         if (Start == None) & (End == None):
-            url = f"http://172.104.65.241/data/api?ID={ID}&token={token}"
+            url = f"https://app.raymond-investment.com/data/api?ID={ID}&token={token}"
         elif (Start != None) & (End == None):
-            url = f"http://172.104.65.241/data/api?ID={ID}&StartDate={Start}&token={token}"
+            url = f"https://app.raymond-investment.com/data/api?ID={ID}&StartDate={Start}&token={token}"
         elif (Start == None) & (End != None):
-            url = f"http://172.104.65.241/data/api?ID={ID}&EndDate={End}&token={token}"
+            url = f"https://app.raymond-investment.com/data/api?ID={ID}&EndDate={End}&token={token}"
         else:
-            url = f"http://172.104.65.241/data/api?ID={ID}&StartDate={Start}&EndDate={End}&token={token}"
+            url = f"https://app.raymond-investment.com/data/api?ID={ID}&StartDate={Start}&EndDate={End}&token={token}"
         
         res = requests.get(url)
         
@@ -55,7 +55,7 @@ class Commodity:
     #抓取原物料價差交易
     @staticmethod
     def Get_SpreadTradingStrategy(token):
-        url = "http://172.104.65.241/api/commodities/spread_strategy"
+        url = "https://app.raymond-investment.com/api/commodities/spread_strategy"
         payload = {'token':token}
         res = requests.get(url, params = payload)
         
@@ -67,7 +67,7 @@ class Commodity:
     #抓取原物料季節性走勢
     @staticmethod
     def Get_Seasonality(symbol,token):
-        url = f"http://172.104.65.241/api/commodities/seasonality/{symbol}"
+        url = f"https://app.raymond-investment.com/api/commodities/seasonality/{symbol}"
         payload = {'token':token}
         res = requests.get(url, params = payload)
         
